@@ -32,6 +32,18 @@
         </dependency>
         <dependency>
             <groupId>me.lolok</groupId>
+            <artifactId>1_8_R1</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.lolok</groupId>
+            <artifactId>1_8_R2</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.lolok</groupId>
             <artifactId>1_8_R3</artifactId>
             <version>${project.parent.version}</version>
             <scope>provided</scope>

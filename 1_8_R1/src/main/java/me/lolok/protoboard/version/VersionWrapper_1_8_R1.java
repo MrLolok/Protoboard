@@ -1,15 +1,15 @@
 package me.lolok.protoboard.version;
 
 import lombok.Getter;
-import net.minecraft.server.v1_8_R3.*;
+import net.minecraft.server.v1_8_R1.*;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_8_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 
-public class VersionWrapper_1_8_R3 implements VersionWrapper {
+public class VersionWrapper_1_8_R1 implements VersionWrapper {
     @Getter
     private final int charactersLimits = 16;
 
@@ -21,7 +21,7 @@ public class VersionWrapper_1_8_R3 implements VersionWrapper {
 
         if (mode == 0 || mode == 2) {
             setFieldValue(packet, "b", displayName);
-            setFieldValue(packet, "c", IScoreboardCriteria.EnumScoreboardHealthDisplay.INTEGER);
+            setFieldValue(packet, "c", EnumScoreboardHealthDisplay.INTEGER);
         }
 
         return packet;
@@ -40,7 +40,7 @@ public class VersionWrapper_1_8_R3 implements VersionWrapper {
         PacketPlayOutScoreboardScore packet = new PacketPlayOutScoreboardScore(line);
         setFieldValue(packet, "b", name);
         setFieldValue(packet, "c", score);
-        setFieldValue(packet, "d", PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE);
+        setFieldValue(packet, "d", EnumScoreboardAction.CHANGE);
         return packet;
     }
 
@@ -67,6 +67,6 @@ public class VersionWrapper_1_8_R3 implements VersionWrapper {
     public void sendPackets(Player player, Object... packets) {
         PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
         for (Object packet : packets)
-            connection.sendPacket((Packet<?>) packet);
+            connection.sendPacket((Packet) packet);
     }
 }
