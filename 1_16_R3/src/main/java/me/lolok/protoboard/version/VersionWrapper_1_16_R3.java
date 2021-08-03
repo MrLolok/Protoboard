@@ -45,11 +45,8 @@ public class VersionWrapper_1_16_R3 implements VersionWrapper {
         PacketPlayOutScoreboardTeam packet = new PacketPlayOutScoreboardTeam();
         setFieldValue(packet, "i", mode);
         setFieldValue(packet, "a", name);
-        setFieldValue(packet, "b", new ChatComponentText(""));
-        setFieldValue(packet, "c", new ChatComponentText(prefix != null ? prefix : ""));
-        setFieldValue(packet, "d", new ChatComponentText(suffix != null ? suffix : ""));
-        setFieldValue(packet, "e", "always");
-        setFieldValue(packet, "f", "never");
+        if (prefix != null) setFieldValue(packet, "c", new ChatComponentText(prefix));
+        if (suffix != null) setFieldValue(packet, "d", new ChatComponentText(suffix));
         setFieldValue(packet, "j", 0);
         return packet;
     }

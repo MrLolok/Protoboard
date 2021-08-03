@@ -47,9 +47,6 @@ public class VersionWrapper_1_14_R1 implements VersionWrapper {
         setFieldValue(packet, "a", name);
         if (prefix != null) setFieldValue(packet, "c", new ChatComponentText(prefix));
         if (suffix != null) setFieldValue(packet, "d", new ChatComponentText(suffix));
-        setFieldValue(packet, "g", EnumChatFormat.RESET);
-        setFieldValue(packet, "e", "always");
-        setFieldValue(packet, "f", "never");
         setFieldValue(packet, "j", 0);
         return packet;
     }

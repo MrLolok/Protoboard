@@ -1,15 +1,15 @@
 package me.lolok.protoboard.version;
 
 import lombok.Getter;
-import net.minecraft.server.v1_13_R2.*;
+import net.minecraft.server.v1_13_R1.*;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_13_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 
-public class VersionWrapper_1_13_R2 implements VersionWrapper {
+public class VersionWrapper_1_13_R1 implements VersionWrapper {
     @Getter
     private final int charactersLimits = 128;
 

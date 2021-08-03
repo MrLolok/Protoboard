@@ -56,7 +56,37 @@
         </dependency>
         <dependency>
             <groupId>me.lolok</groupId>
+            <artifactId>1_9_R1</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.lolok</groupId>
+            <artifactId>1_9_R2</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.lolok</groupId>
+            <artifactId>1_10_R1</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.lolok</groupId>
+            <artifactId>1_11_R1</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.lolok</groupId>
             <artifactId>1_12_R1</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.lolok</groupId>
+            <artifactId>1_13_R1</artifactId>
             <version>${project.parent.version}</version>
             <scope>provided</scope>
         </dependency>

@@ -25,10 +25,20 @@ public class VersionChecker {
                 return new VersionWrapper_1_8_R2();
             case "1_8_R3":
                 return new VersionWrapper_1_8_R3();
+            case "1_9_R1":
+                return new VersionWrapper_1_9_R1();
+            case "1_9_R2":
+                return new VersionWrapper_1_9_R2();
+            case "1_10_R1":
+                return new VersionWrapper_1_10_R1();
+            case "1_11_R1":
+                return new VersionWrapper_1_11_R1();
             case "1_12_R1":
                 return new VersionWrapper_1_12_R1();
-            case "1_13_R2":
+            case "1_13_R1":
                 return new VersionWrapper_1_13_R2();
+            case "1_13_R2":
+                return new VersionWrapper_1_13_R1();
             case "1_14_R1":
                 return new VersionWrapper_1_14_R1();
             case "1_15_R1":
