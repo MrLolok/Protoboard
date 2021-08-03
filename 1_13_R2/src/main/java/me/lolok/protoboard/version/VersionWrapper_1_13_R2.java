@@ -37,7 +37,7 @@ public class VersionWrapper_1_13_R2 implements VersionWrapper {
 
     @Override
     public PacketPlayOutScoreboardScore createScorePacket(String name, String line, int score) {
-        return new PacketPlayOutScoreboardScore(ScoreboardServer.Action.CHANGE, null, null, score);
+        return new PacketPlayOutScoreboardScore(ScoreboardServer.Action.CHANGE, line, line, score);
     }
 
     @Override

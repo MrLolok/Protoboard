@@ -11,6 +11,7 @@
     <modules>
         <module>api</module>
         <module>abstraction</module>
+        <module>1_7_R4</module>
         <module>1_8_R1</module>
         <module>1_8_R2</module>
         <module>1_8_R3</module>
@@ -19,6 +20,7 @@
         <module>1_14_R1</module>
         <module>1_15_R1</module>
         <module>1_16_R3</module>
+        <module>1_17_R1</module>
     </modules>
 
     <properties>

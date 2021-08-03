@@ -17,6 +17,8 @@ public class VersionChecker {
     @Nullable
     public static VersionWrapper getVersionWrapper() {
         switch (VERSION) {
+            case "1_7_R4":
+                return new VersionWrapper_1_7_R4();
             case "1_8_R1":
                 return new VersionWrapper_1_8_R1();
             case "1_8_R2":
@@ -33,6 +35,8 @@ public class VersionChecker {
                 return new VersionWrapper_1_15_R1();
             case "1_16_R3":
                 return new VersionWrapper_1_16_R3();
+            case "1_17_R1":
+                return new VersionWrapper_1_17_R1();
             default:
                 Bukkit.getLogger().severe("The server version isn't compatible with Protoboard!");
                 return null;
