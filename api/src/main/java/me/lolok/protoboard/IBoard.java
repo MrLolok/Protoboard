@@ -1,9 +1,11 @@
 package me.lolok.protoboard;
 
+import me.lolok.protoboard.tasks.BoardLineTask;
 import me.lolok.protoboard.version.VersionChecker;
 import me.lolok.protoboard.version.VersionWrapper;
 import org.bukkit.entity.Player;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface IBoard {
@@ -21,9 +23,13 @@ public interface IBoard {
 
     boolean isReady();
 
-    IBoardLine getLine(int row);
+    Optional<IBoardLine> getLine(int row);
 
     void setLine(int row, String content);
 
     void setLine(IBoardLine line, String content);
+
+    void setLineTask(int row, BoardLineTask task);
+
+    void setLineTask(IBoardLine line, BoardLineTask task);
 }

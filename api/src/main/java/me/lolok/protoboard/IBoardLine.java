@@ -1,5 +1,6 @@
 package me.lolok.protoboard;
 
+import me.lolok.protoboard.tasks.BoardLineTask;
 import org.bukkit.entity.Player;
 
 public interface IBoardLine {
@@ -8,6 +9,10 @@ public interface IBoardLine {
     String getContent();
 
     void setContent(String content);
+
+    BoardLineTask getTask();
+
+    void setTask(BoardLineTask task);
 
     void show();
 

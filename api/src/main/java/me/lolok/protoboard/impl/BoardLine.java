@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import me.lolok.protoboard.IBoard;
 import me.lolok.protoboard.IBoardLine;
+import me.lolok.protoboard.tasks.BoardLineTask;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -19,6 +20,9 @@ public class BoardLine implements IBoardLine {
 
     @Getter @Setter
     private String content = "";
+
+    @Getter @Setter
+    private BoardLineTask task;
 
     @Override
     public void show() {

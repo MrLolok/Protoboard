@@ -4,10 +4,12 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.lolok.protoboard.IBoard;
 import me.lolok.protoboard.IBoardLine;
+import me.lolok.protoboard.tasks.BoardLineTask;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @RequiredArgsConstructor
@@ -34,22 +36,19 @@ public class Board implements IBoard {
     }
 
     @Override
-    public IBoardLine getLine(int row) {
-        for (IBoardLine line : lines)
-            if (line.getRow() == row)
-                return line;
-        return null;
+    public Optional<IBoardLine> getLine(int row) {
+        return lines.stream().filter(line -> line.getRow() == row).findAny();
     }
 
     @Override
     public void setLine(int row, String content) {
-        IBoardLine existing = getLine(row);
-        if (existing != null) {
-            setLine(existing, content);
+        Optional<IBoardLine> existing = getLine(row);
+        if (existing.isPresent()) {
+            setLine(existing.get(), content);
             return;
         }
 
-        IBoardLine line = new BoardLine(this, row, content);
+        IBoardLine line = new BoardLine(this, row, content, null);
         lines.add(line);
         line.show();
     }
@@ -58,5 +57,18 @@ public class Board implements IBoard {
     public void setLine(IBoardLine line, String content) {
         line.setContent(content);
         line.update();
+    }
+
+    @Override
+    public void setLineTask(int row, BoardLineTask task) {
+        getLine(row).ifPresent(line -> setLineTask(line, task));
+    }
+
+    @Override
+    public void setLineTask(IBoardLine line, BoardLineTask task) {
+        if (line.getTask() != null && line.getTask().isRunning()) line.getTask().cancel();
+
+        line.setTask(task);
+        task.start();
     }
 }
