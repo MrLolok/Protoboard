@@ -1,11 +1,11 @@
 package me.lolok.protoboard.impl;
 
+import com.google.common.base.Preconditions;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.lolok.protoboard.IBoard;
 import me.lolok.protoboard.IBoardLine;
 import me.lolok.protoboard.tasks.BoardLineTask;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.HashSet;
@@ -22,15 +22,17 @@ public class Board implements IBoard {
 
     @Override
     public void create() {
-        VERSION_WRAPPER.sendPackets(viewer, VERSION_WRAPPER.createObjectivePacket(0, title));
-        VERSION_WRAPPER.sendPackets(viewer, VERSION_WRAPPER.createDisplayObjectivePacket(ChatColor.stripColor(title)));
+        Preconditions.checkNotNull(VERSION_WRAPPER);
+        VERSION_WRAPPER.sendPackets(viewer, VERSION_WRAPPER.createObjectivePacket(0, viewer.getName(), title));
+        VERSION_WRAPPER.sendPackets(viewer, VERSION_WRAPPER.createDisplayObjectivePacket(viewer.getName()));
         lines.forEach(IBoardLine::show);
         ready = true;
     }
 
     @Override
     public void destroy() {
-        VERSION_WRAPPER.sendPackets(viewer, VERSION_WRAPPER.createObjectivePacket(1, null));
+        Preconditions.checkNotNull(VERSION_WRAPPER);
+        VERSION_WRAPPER.sendPackets(viewer, VERSION_WRAPPER.createObjectivePacket(1, viewer.getName(), null));
         lines.forEach(IBoardLine::destroy);
         ready = false;
     }
@@ -41,34 +43,38 @@ public class Board implements IBoard {
     }
 
     @Override
-    public void setLine(int row, String content) {
+    public IBoard setLine(int row, String content) {
         Optional<IBoardLine> existing = getLine(row);
         if (existing.isPresent()) {
             setLine(existing.get(), content);
-            return;
+            return this;
         }
 
         IBoardLine line = new BoardLine(this, row, content, null);
         lines.add(line);
         line.show();
+        return this;
     }
 
     @Override
-    public void setLine(IBoardLine line, String content) {
+    public IBoard setLine(IBoardLine line, String content) {
         line.setContent(content);
         line.update();
+        return this;
     }
 
     @Override
-    public void setLineTask(int row, BoardLineTask task) {
+    public IBoard setLineTask(int row, BoardLineTask task) {
         getLine(row).ifPresent(line -> setLineTask(line, task));
+        return this;
     }
 
     @Override
-    public void setLineTask(IBoardLine line, BoardLineTask task) {
+    public IBoard setLineTask(IBoardLine line, BoardLineTask task) {
         if (line.getTask() != null && line.getTask().isRunning()) line.getTask().cancel();
 
         line.setTask(task);
         task.start();
+        return this;
     }
 }

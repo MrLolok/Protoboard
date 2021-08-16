@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Nullable;
 public interface VersionWrapper {
     int getCharactersLimits();
 
-    Object createObjectivePacket(int mode, String displayName);
+    Object createObjectivePacket(int mode, String name, String displayName);
 
     Object createDisplayObjectivePacket(String name);
 

@@ -12,7 +12,6 @@ import net.minecraft.network.protocol.game.PacketPlayOutScoreboardTeam;
 import net.minecraft.server.ScoreboardServer;
 import net.minecraft.server.network.PlayerConnection;
 import net.minecraft.world.scores.criteria.IScoreboardCriteria;
-import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
@@ -25,9 +24,9 @@ public class VersionWrapper_1_17_R1 implements VersionWrapper {
 
     @SneakyThrows
     @Override
-    public PacketPlayOutScoreboardObjective createObjectivePacket(int mode, String displayName) {
+    public PacketPlayOutScoreboardObjective createObjectivePacket(int mode, String name, String displayName) {
         PacketPlayOutScoreboardObjective packet = PacketPlayOutScoreboardObjective.class.newInstance();
-        setFieldValue(packet, "d", ChatColor.stripColor(displayName));
+        setFieldValue(packet, "d", name);
         setFieldValue(packet, "g", mode);
 
         if (mode == 0 || mode == 2) {

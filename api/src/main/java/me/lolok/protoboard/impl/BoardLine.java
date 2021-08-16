@@ -27,8 +27,7 @@ public class BoardLine implements IBoardLine {
     @Override
     public void show() {
         IBoard.VERSION_WRAPPER.sendPackets(getViewer(), IBoard.VERSION_WRAPPER.getCreateTeamPacket(getTeamName(), getPrefix(), getSuffix()));
-        IBoard.VERSION_WRAPPER.sendPackets(getViewer(), IBoard.VERSION_WRAPPER.createUpdateUserPacket(3, getTeamName(), getViewer().getName()));
-        IBoard.VERSION_WRAPPER.sendPackets(getViewer(), IBoard.VERSION_WRAPPER.createScorePacket(getViewer().getName(), getTeamName(), 15 - row));
+        IBoard.VERSION_WRAPPER.sendPackets(getViewer(), IBoard.VERSION_WRAPPER.createScorePacket(getViewer().getName(), getPrefix() + getSuffix(), 15 - row));
     }
 
     @Override
@@ -48,12 +47,12 @@ public class BoardLine implements IBoardLine {
 
     @Override
     public String getPrefix() {
-        return content.substring(0, IBoard.VERSION_WRAPPER.getCharactersLimits());
+        return content.substring(0, Math.min(content.length(), IBoard.VERSION_WRAPPER.getCharactersLimits()));
     }
 
     @Override
     public String getSuffix() {
-        return content.substring(IBoard.VERSION_WRAPPER.getCharactersLimits());
+        return content.substring(Math.min(content.length(), IBoard.VERSION_WRAPPER.getCharactersLimits()));
     }
 
     @Override

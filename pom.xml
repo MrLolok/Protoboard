@@ -8,9 +8,13 @@
     <artifactId>Protoboard</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
+
+    <name>Protoboard</name>
+
     <modules>
         <module>api</module>
         <module>abstraction</module>
+        <module>example</module>
         <module>1_7_R4</module>
         <module>1_8_R1</module>
         <module>1_8_R2</module>
@@ -24,16 +28,22 @@
         <module>1_13_R2</module>
         <module>1_14_R1</module>
         <module>1_15_R1</module>
+        <module>1_16_R2</module>
+        <module>1_16_R1</module>
         <module>1_16_R3</module>
-        <module>1_17_R1</module>
+        <!-- <module>1_17_R1</module> -->
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <build>
+        <finalName>Protoboard-${project.name}-${project.version}</finalName>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

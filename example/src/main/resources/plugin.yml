@@ -1,0 +1,5 @@
+name: ${project.parent.name}
+version: ${project.version}
+author: Lolok
+main: me.lolok.protoboard.ExamplePlugin
+api-version: "1.16"

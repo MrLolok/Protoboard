@@ -17,36 +17,40 @@ public class VersionChecker {
     @Nullable
     public static VersionWrapper getVersionWrapper() {
         switch (VERSION) {
-            case "1_7_R4":
+            case "v1_7_R4":
                 return new VersionWrapper_1_7_R4();
-            case "1_8_R1":
+            case "v1_8_R1":
                 return new VersionWrapper_1_8_R1();
-            case "1_8_R2":
+            case "v1_8_R2":
                 return new VersionWrapper_1_8_R2();
-            case "1_8_R3":
+            case "v1_8_R3":
                 return new VersionWrapper_1_8_R3();
-            case "1_9_R1":
+            case "v1_9_R1":
                 return new VersionWrapper_1_9_R1();
-            case "1_9_R2":
+            case "v1_9_R2":
                 return new VersionWrapper_1_9_R2();
-            case "1_10_R1":
+            case "v1_10_R1":
                 return new VersionWrapper_1_10_R1();
-            case "1_11_R1":
+            case "v1_11_R1":
                 return new VersionWrapper_1_11_R1();
-            case "1_12_R1":
+            case "v1_12_R1":
                 return new VersionWrapper_1_12_R1();
-            case "1_13_R1":
+            case "v1_13_R1":
                 return new VersionWrapper_1_13_R2();
-            case "1_13_R2":
+            case "v1_13_R2":
                 return new VersionWrapper_1_13_R1();
-            case "1_14_R1":
+            case "v1_14_R1":
                 return new VersionWrapper_1_14_R1();
-            case "1_15_R1":
+            case "v1_15_R1":
                 return new VersionWrapper_1_15_R1();
-            case "1_16_R3":
+            case "v1_16_R1":
+                return new VersionWrapper_1_16_R1();
+            case "v1_16_R2":
+                return new VersionWrapper_1_16_R2();
+            case "v1_16_R3":
                 return new VersionWrapper_1_16_R3();
-            case "1_17_R1":
-                return new VersionWrapper_1_17_R1();
+            /*case "1_17_R1":
+                return new VersionWrapper_1_17_R1();*/
             default:
                 Bukkit.getLogger().severe("The server version isn't compatible with Protoboard!");
                 return null;

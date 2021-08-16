@@ -25,11 +25,11 @@ public interface IBoard {
 
     Optional<IBoardLine> getLine(int row);
 
-    void setLine(int row, String content);
+    IBoard setLine(int row, String content);
 
-    void setLine(IBoardLine line, String content);
+    IBoard setLine(IBoardLine line, String content);
 
-    void setLineTask(int row, BoardLineTask task);
+    IBoard setLineTask(int row, BoardLineTask task);
 
-    void setLineTask(IBoardLine line, BoardLineTask task);
+    IBoard setLineTask(IBoardLine line, BoardLineTask task);
 }

@@ -2,7 +2,6 @@ package me.lolok.protoboard.version;
 
 import lombok.Getter;
 import net.minecraft.server.v1_11_R1.*;
-import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
@@ -14,9 +13,9 @@ public class VersionWrapper_1_11_R1 implements VersionWrapper {
     private final int charactersLimits = 32;
 
     @Override
-    public PacketPlayOutScoreboardObjective createObjectivePacket(int mode, String displayName) {
+    public PacketPlayOutScoreboardObjective createObjectivePacket(int mode, String name, String displayName) {
         PacketPlayOutScoreboardObjective packet = new PacketPlayOutScoreboardObjective();
-        setFieldValue(packet, "a", ChatColor.stripColor(displayName));
+        setFieldValue(packet, "a", name);
         setFieldValue(packet, "d", mode);
 
         if (mode == 0 || mode == 2) {
