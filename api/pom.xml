@@ -127,12 +127,12 @@
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
-        <!-- <dependency>
+        <dependency>
             <groupId>me.lolok</groupId>
             <artifactId>1_17_R1</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
-        </dependency> -->
+        </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>

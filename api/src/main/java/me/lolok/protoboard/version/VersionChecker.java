@@ -49,8 +49,8 @@ public class VersionChecker {
                 return new VersionWrapper_1_16_R2();
             case "v1_16_R3":
                 return new VersionWrapper_1_16_R3();
-            /*case "1_17_R1":
-                return new VersionWrapper_1_17_R1();*/
+            case "1_17_R1":
+                return new VersionWrapper_1_17_R1();
             default:
                 Bukkit.getLogger().severe("The server version isn't compatible with Protoboard!");
                 return null;
