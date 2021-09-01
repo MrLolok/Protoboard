@@ -8,6 +8,8 @@ import java.util.Collection;
 public interface IBoardFactory<T extends Board> {
     IBoardFactory<T> addLine(String content);
 
+    IBoardFactory<T> setLine(int row, String content);
+
     IBoardFactory<T> addLine(BoardLine line);
 
     IBoardFactory<T> addLines(Collection<BoardLine> lines);

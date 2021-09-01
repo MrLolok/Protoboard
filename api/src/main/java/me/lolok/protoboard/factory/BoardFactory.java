@@ -26,7 +26,18 @@ public class BoardFactory<T extends Board> implements IBoardFactory<T> {
 
     @Override
     public IBoardFactory<T> addLine(String content) {
-        BoardLine line = new DefaultBoardLine(viewer, index++, content, null);
+        for (BoardLine line : lines)
+            if (line.getRow() == index) {
+                index++;
+                addLine(content);
+            }
+
+        return setLine(index++, content);
+    }
+
+    @Override
+    public IBoardFactory<T> setLine(int row, String content) {
+        BoardLine line = new DefaultBoardLine(viewer, row, content, null);
         return addLine(line);
     }
 

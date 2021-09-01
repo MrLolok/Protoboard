@@ -10,14 +10,14 @@ import java.util.List;
 public interface BoardProvider {
     String getTitle(Player player);
 
-    List<BoardLine> getLines();
+    List<BoardLine> getLines(Player player);
 
     default BoardAdapter getAdapter() {
         return DefaultBoardAdapter.getInstance();
     }
 
     default Board getBoard(Player viewer) {
-        return new DefaultBoardFactory(getTitle(viewer), viewer).addLines(getLines()).create();
+        return new DefaultBoardFactory(getTitle(viewer), viewer).addLines(getLines(viewer)).create();
     }
 
     default void show(Player viewer) {
