@@ -1,5 +1,6 @@
 package me.lolok.protoboard;
 
+import lombok.Getter;
 import me.lolok.protoboard.factory.DefaultBoardFactory;
 import me.lolok.protoboard.impl.DefaultBoardLine;
 import me.lolok.protoboard.tasks.lines.DefaultBoardLineTask;
@@ -25,6 +26,7 @@ public class ExamplePlugin extends JavaPlugin implements Listener {
     }
 
     public static class ExampleBoard implements BoardProvider {
+        @Getter
         private final JavaPlugin plugin;
 
         public ExampleBoard(JavaPlugin plugin) {
@@ -39,7 +41,7 @@ public class ExamplePlugin extends JavaPlugin implements Listener {
         @Override
         public List<BoardLine> getLines(Player player) {
             List<BoardLine> lines = new ArrayList<>();
-            // Second line of the board
+            // First line of the board
             lines.add(new DefaultBoardLine(player, 0, "Name: " + player.getName()));
             // Second line of the board (empty line)
             lines.add(new DefaultBoardLine(player, 1));

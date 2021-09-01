@@ -1,6 +1,7 @@
 package me.lolok.protoboard;
 
 import me.lolok.protoboard.adapter.BoardAdapter;
+import me.lolok.protoboard.tasks.RepeatingTask;
 import me.lolok.protoboard.tasks.lines.BoardLineTask;
 import org.bukkit.entity.Player;
 
@@ -20,6 +21,10 @@ public interface Board {
 
     Player getViewer();
 
+    RepeatingTask getUpdateTask();
+
+    void setUpdateTask(RepeatingTask task);
+
     boolean isReady();
 
     Optional<BoardLine> getLine(int row);
@@ -33,4 +38,8 @@ public interface Board {
     void setLineTask(int row, BoardLineTask task);
 
     void setLineTask(BoardLine line, BoardLineTask task);
+
+    void removeLine(int row);
+
+    void removeLines();
 }
