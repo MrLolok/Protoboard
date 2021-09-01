@@ -1,9 +1,14 @@
 package me.lolok.protoboard;
 
-import me.lolok.protoboard.tasks.BoardLineTask;
+import me.lolok.protoboard.adapter.BoardAdapter;
+import me.lolok.protoboard.tasks.lines.BoardLineTask;
 import org.bukkit.entity.Player;
 
-public interface IBoardLine {
+public interface BoardLine {
+    BoardAdapter getAdapter();
+
+    Player getViewer();
+
     int getRow();
 
     String getContent();
@@ -25,6 +30,4 @@ public interface IBoardLine {
     String getPrefix();
 
     String getSuffix();
-
-    Player getViewer();
 }

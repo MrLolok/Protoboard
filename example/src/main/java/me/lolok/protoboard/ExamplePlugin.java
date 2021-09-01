@@ -1,6 +1,6 @@
 package me.lolok.protoboard;
 
-import me.lolok.protoboard.impl.Board;
+import me.lolok.protoboard.factory.DefaultBoardFactory;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -14,7 +14,7 @@ public class ExamplePlugin extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        IBoard board = new Board("§6§lTest Scoreboard", e.getPlayer()).setLine(0, "First line").setLine(1, "Second line");
+        Board board = new DefaultBoardFactory("§6§lTest Scoreboard", e.getPlayer()).addLine("First line").addLine("Second line").create();
         board.create();
     }
 }
