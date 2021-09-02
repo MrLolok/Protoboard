@@ -29,6 +29,9 @@ public class ExamplePlugin extends JavaPlugin implements Listener {
         @Getter
         private final JavaPlugin plugin;
 
+        @Getter
+        private final long updatePeriod = 20L;
+
         public ExampleBoard(JavaPlugin plugin) {
             this.plugin = plugin;
         }

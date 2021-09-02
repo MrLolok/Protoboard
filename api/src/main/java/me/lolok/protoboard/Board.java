@@ -11,6 +11,8 @@ import java.util.Set;
 public interface Board {
     BoardAdapter getAdapter();
 
+    void setAdapter(BoardAdapter adapter);
+
     void create();
 
     void destroy();

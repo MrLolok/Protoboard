@@ -2,6 +2,8 @@ package me.lolok.protoboard.factory;
 
 import me.lolok.protoboard.Board;
 import me.lolok.protoboard.BoardLine;
+import me.lolok.protoboard.adapter.BoardAdapter;
+import me.lolok.protoboard.adapter.DefaultBoardAdapter;
 import me.lolok.protoboard.impl.DefaultBoardLine;
 import org.bukkit.entity.Player;
 
@@ -16,6 +18,7 @@ public class BoardFactory<T extends Board> implements IBoardFactory<T> {
     private final Player viewer;
 
     private int index = 0;
+    private BoardAdapter adapter = DefaultBoardAdapter.getInstance();
     private final Set<BoardLine> lines = new HashSet<>();
 
     public BoardFactory(Class<T> type, String title, Player viewer) {
@@ -55,6 +58,12 @@ public class BoardFactory<T extends Board> implements IBoardFactory<T> {
     }
 
     @Override
+    public IBoardFactory<T> setAdapter(BoardAdapter adapter) {
+        this.adapter = adapter;
+        return this;
+    }
+
+    @Override
     public T create() {
         T board;
         try {
@@ -63,6 +72,7 @@ public class BoardFactory<T extends Board> implements IBoardFactory<T> {
             throw new RuntimeException("Something went wrong during build of the view", e);
         }
 
+        board.setAdapter(adapter);
         for (BoardLine line : lines)
             board.addLine(line);
 

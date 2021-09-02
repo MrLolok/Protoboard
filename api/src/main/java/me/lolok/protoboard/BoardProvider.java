@@ -25,7 +25,7 @@ public interface BoardProvider {
     }
 
     default Board getBoard(Player viewer) {
-        return new DefaultBoardFactory(getTitle(viewer), viewer).addLines(getLines(viewer)).create();
+        return new DefaultBoardFactory(getTitle(viewer), viewer).setAdapter(getAdapter()).addLines(getLines(viewer)).create();
     }
 
     default void show(Player viewer) {

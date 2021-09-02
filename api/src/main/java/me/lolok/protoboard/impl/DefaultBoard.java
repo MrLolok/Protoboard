@@ -18,7 +18,8 @@ import java.util.Set;
 @RequiredArgsConstructor
 @Getter
 public class DefaultBoard implements Board {
-    private final BoardAdapter adapter = DefaultBoardAdapter.getInstance();
+    @Setter
+    private BoardAdapter adapter = DefaultBoardAdapter.getInstance();
 
     private final String title;
     private final Set<BoardLine> lines = new HashSet<>();
